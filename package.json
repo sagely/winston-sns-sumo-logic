@@ -1,0 +1,30 @@
+{
+  "name": "winston-sns-sumo-logic",
+  "version": "1.0.0",
+  "description": "Winston Transport for Amazon SNS specialized for JSON logs in Sumo Logic",
+  "scripts": {
+    "test": "istanbul cover --include-all-sources true ./node_modules/mocha/bin/_mocha -- --reporter spec --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Battlefy/winston-sns-sumo-logic.git"
+  },
+  "keywords": [
+    "winston",
+    "sns",
+    "sumo logic"
+  ],
+  "author": "Ronald Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Battlefy/winston-sns-sumo-logic/issues"
+  },
+  "homepage": "https://github.com/Battlefy/winston-sns-sumo-logic#readme",
+  "devDependencies": {
+    "aws-sdk": "2.2.x",
+    "chai": "3.4.x",
+    "istanbul": "0.4.x",
+    "mocha": "2.3.x",
+    "winston": "2.1.x"
+  }
+}
