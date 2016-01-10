@@ -1,5 +1,7 @@
 # winston-sns-sumo-logic
 
+[![Circle CI](https://circleci.com/gh/Battlefy/winston-sns-sumo-logic.svg?style=shield)](https://circleci.com/gh/Battlefy/winston-sns-sumo-logic)
+
 An [Amazon SNS][0] transport for [winston][1] specialized for JSON logs in [Sumo Logic][2].
 
 [Sumo Logic][2] is not required to use this package if you only want to send nicely formatted JSON messages to [Amazon SNS][0].
