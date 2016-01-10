@@ -25,6 +25,7 @@
     "chai": "3.4.x",
     "istanbul": "0.4.x",
     "mocha": "2.3.x",
+    "mocha-junit-reporter": "^1.9.1",
     "winston": "2.1.x"
   }
 }
