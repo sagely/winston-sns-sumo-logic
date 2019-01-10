@@ -59,12 +59,16 @@ describe('winston-sns-sumo-logic', () => {
       }
     });
 
-    transport.log('info', 'successful landing', {
-      location: {
-        latitude: 28.4859,
-        longitude: -80.5444
-      },
-      fuel: 'nominal'
+    transport.log({
+      level: 'info',
+      message: 'successful landing',
+      meta: {
+        location: {
+          latitude: 28.4859,
+          longitude: -80.5444
+        },
+        fuel: 'nominal'
+      }
     });
   });
 });
