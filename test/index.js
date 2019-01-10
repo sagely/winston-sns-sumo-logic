@@ -50,6 +50,7 @@ describe('winston-sns-sumo-logic', () => {
         });
       }
     };
+
     const transport = new WinstonSnsSumoLogic({
       topicArn: 'some topic arn',
       sns,

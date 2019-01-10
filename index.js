@@ -22,6 +22,10 @@ module.exports = class WinstonSnsSumoLogic extends winston.Transport {
   }
 
   log(info, callback) {
+    setImmediate(() => {
+      this.emit('logged', info);
+    });
+
     // this is the required sumo logic timestamp for json logs
     const body = Object.assign({}, this.body, {
       timestamp: Date.now(),
