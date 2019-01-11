@@ -1,9 +1,13 @@
 {
   "name": "winston-sns-sumo-logic",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Winston Transport for Amazon SNS specialized for JSON logs in Sumo Logic",
   "scripts": {
-    "test": "istanbul cover --include-all-sources true ./node_modules/mocha/bin/_mocha -- --reporter spec --recursive"
+    "coverage": "npm test && open coverage/lcov-report/index.html",
+    "lint": "eslint --fix .",
+    "lint:ci": "eslint .",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --onlyChanged"
   },
   "repository": {
     "type": "git",
@@ -21,11 +25,27 @@
   },
   "homepage": "https://github.com/Battlefy/winston-sns-sumo-logic#readme",
   "devDependencies": {
-    "aws-sdk": "2.2.x",
-    "chai": "3.4.x",
-    "istanbul": "0.4.x",
-    "mocha": "2.3.x",
-    "mocha-junit-reporter": "^1.9.1",
-    "winston": "2.1.x"
+    "aws-sdk": "2.386.0",
+    "eslint": "5.12.0",
+    "jasmine-reporters": "2.3.2",
+    "jest": "23.6.0",
+    "winston": "3.1.0"
+  },
+  "jest": {
+    "resetMocks": true,
+    "resetModules": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "coverage/",
+      "setup-jest.js"
+    ],
+    "coverageReporters": [
+      "text-summary",
+      "lcov"
+    ],
+    "setupTestFrameworkScriptFile": "./setup-jest.js",
+    "testURL": "http://localhost/"
   }
 }

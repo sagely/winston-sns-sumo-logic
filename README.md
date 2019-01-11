@@ -2,17 +2,19 @@
 
 [![Circle CI](https://circleci.com/gh/Battlefy/winston-sns-sumo-logic.svg?style=shield)](https://circleci.com/gh/Battlefy/winston-sns-sumo-logic)
 
-An [Amazon SNS][0] transport for [winston][1] specialized for JSON logs in [Sumo Logic][2].
+An [Amazon SNS][0] transport for [winston 3.x][1] specialized for JSON logs in [Sumo Logic][2].
 
 [Sumo Logic][2] is not required to use this package if you only want to send nicely formatted JSON messages to [Amazon SNS][0].
 
-Requires [Node.js v4.2.x][9] or greater.
+Requires [Node.js 10.13.x][9] or greater.
 
 ## Usage
 ``` js
-const winston = require('winston');
-const WinstonSnsSumoLogic = require('winston-sns-sumo-logic');
+const {createLogger} = require('winston');
 const AWS = require('aws-sdk');
+const WinstonSnsSumoLogic = require('winston-sns-sumo-logic');
+
+const logger = createLogger();
 
 const sns = new AWS.SNS({
   region: '..',
@@ -20,13 +22,11 @@ const sns = new AWS.SNS({
   secretAccessKey: '..'
 });
 
-const options = {
+logger.add(new WinstonSnsSumoLogic({
   level: 'error',
   sns,
   topicArn: '..'
-};
-
-winston.add(WinstonSnsSumoLogic, options);
+}));
 ```
 ### Options
 * `level`: Level of messages that should be logged.  Defaults to `info`.
@@ -103,4 +103,4 @@ $ npm install winston-sns-sumo-logic --save
 [6]: https://service.sumologic.com/help/Default.htm#Setting_up_a_Hosted_Collector.htm
 [7]: https://service.sumologic.com/help/#Collecting_logs_for_AWS_Config.htm
 [8]: http://docs.aws.amazon.com/sns/latest/dg/large-payload-raw-message.html
-[9]: https://nodejs.org/en/blog/release/v4.2.0/
+[9]: https://nodejs.org/en/
