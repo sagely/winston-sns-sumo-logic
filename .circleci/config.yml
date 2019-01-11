@@ -60,6 +60,3 @@ workflows:
       - linter:
           requires:
             - install
-      - license-check:
-          requires:
-            - install
