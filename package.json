@@ -39,11 +39,6 @@
     ],
     "coveragePathIgnorePatterns": [
       "coverage/",
-      "health/",
-      "application.js",
-      "logger.js",
-      "server.js",
-      "sns.js",
       "setup-jest.js"
     ],
     "coverageReporters": [
