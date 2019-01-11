@@ -26,8 +26,31 @@
   "homepage": "https://github.com/Battlefy/winston-sns-sumo-logic#readme",
   "devDependencies": {
     "aws-sdk": "2.386.0",
+    "eslint": "5.12.0",
     "jasmine-reporters": "2.3.2",
     "jest": "23.6.0",
     "winston": "3.1.0"
+  },
+  "jest": {
+    "resetMocks": true,
+    "resetModules": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "coverage/",
+      "health/",
+      "application.js",
+      "logger.js",
+      "server.js",
+      "sns.js",
+      "setup-jest.js"
+    ],
+    "coverageReporters": [
+      "text-summary",
+      "lcov"
+    ],
+    "setupTestFrameworkScriptFile": "./setup-jest.js",
+    "testURL": "http://localhost/"
   }
 }
