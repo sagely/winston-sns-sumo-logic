@@ -6,7 +6,7 @@ An [Amazon SNS][0] transport for [winston 3.x][1] specialized for JSON logs in [
 
 [Sumo Logic][2] is not required to use this package if you only want to send nicely formatted JSON messages to [Amazon SNS][0].
 
-Requires [Node.js v10.13.x][9] or greater.
+Requires [Node.js 10.13.x][9] or greater.
 
 ## Usage
 ``` js
