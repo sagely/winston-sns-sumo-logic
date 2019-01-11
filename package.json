@@ -3,7 +3,12 @@
   "version": "2.0.0",
   "description": "Winston Transport for Amazon SNS specialized for JSON logs in Sumo Logic",
   "scripts": {
-    "test": "jest --coverage"
+    "coverage": "npm test && open coverage/lcov-report/index.html",
+    "license-check": "license-checker --production --summary --failOn 'AGPL;EPL;GPL'",
+    "lint": "eslint --fix .",
+    "lint:ci": "eslint .",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --onlyChanged"
   },
   "repository": {
     "type": "git",
