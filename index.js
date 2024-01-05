@@ -1,6 +1,7 @@
 'use strict';
 
 const winston = require('winston');
+const { PublishCommand } = require('@aws-sdk/client-sns');
 
 module.exports = class WinstonSnsSumoLogic extends winston.Transport {
   constructor(options) {
@@ -27,10 +28,21 @@ module.exports = class WinstonSnsSumoLogic extends winston.Transport {
       message,
       meta
     });
-    this.sns.publish({
+    // this.sns.publish({
+    //   TopicArn: this.topicArn,
+    //   Subject: 'Winston Log',
+    //   Message: JSON.stringify(body)
+    // }, callback);
+
+    const publishCommand = new PublishCommand({
       TopicArn: this.topicArn,
       Subject: 'Winston Log',
       Message: JSON.stringify(body)
-    }, callback);
+    });
+    this.sns.send(publishCommand).then(() => {
+      console.log('cb: ', callback);
+      console.log('message: ', message);
+      return callback();
+    });
   }
 };

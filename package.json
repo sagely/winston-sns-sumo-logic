@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Battlefy/winston-sns-sumo-logic#readme",
   "devDependencies": {
-    "aws-sdk": "2.2.x",
+    "@aws-sdk/client-sns": "3.405.0",
     "chai": "3.4.x",
     "istanbul": "0.4.x",
     "mocha": "2.3.x",
