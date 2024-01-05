@@ -28,11 +28,6 @@ module.exports = class WinstonSnsSumoLogic extends winston.Transport {
       message,
       meta
     });
-    // this.sns.publish({
-    //   TopicArn: this.topicArn,
-    //   Subject: 'Winston Log',
-    //   Message: JSON.stringify(body)
-    // }, callback);
 
     const publishCommand = new PublishCommand({
       TopicArn: this.topicArn,
@@ -40,8 +35,6 @@ module.exports = class WinstonSnsSumoLogic extends winston.Transport {
       Message: JSON.stringify(body)
     });
     this.sns.send(publishCommand).then(() => {
-      console.log('cb: ', callback);
-      console.log('message: ', message);
       return callback();
     });
   }
